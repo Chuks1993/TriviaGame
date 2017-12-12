@@ -5,41 +5,39 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-/*#start {
-	position: absolute;
-	  width: 200px;
-	  height: 100px;
-	  z-index: 15;
-	  top: 50%;
-	  left: 50%;
-	  margin:  0 -100px;
-	  font-family: 'Shrikhand', cursive;
-	  font-size: 50px;
-}
-
-header {
-	position: absolute;
-
-	  z-index: 15;
-	  top: 30%;
-	  left: 35%;
-	  margin:  0 -100px;
-	  font-family: 'Shrikhand', cursive;
-	  font-size: 100px;
-
-}*/
-
-#start {
-	
-	  width: 200px;
-	  height: 100px;
-	  
-	  font-family: 'Shrikhand', cursive;
-	  font-size: 50px;
-}
 
 #logo {
-
-	  font-family: 'Shrikhand', cursive;
-	  font-size: 100px;
+	font-family: 'Shrikhand', cursive;
+	font-size: 125px;
 }
+
+#timer {
+	font-family: 'Shrikhand', cursive;
+	font-size: 50px;
+}
+
+.container button{
+	position: relative;
+	top: 300px;
+	margin: auto;		
+	height: 100px; 
+	font-family: 'Shrikhand', cursive;
+	font-size: 50px;
+	
+}
+
+#buttons {
+	position: absolute;
+	top: 50px;
+	width: 100%;
+
+}
+
+#a, #b, #c {
+	position: relative;
+	width: 70%;
+	padding: 10px;
+	margin-left: 50px;
+}
+
+ 
