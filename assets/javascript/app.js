@@ -10,6 +10,7 @@ $(document).ready(function(){
     };
     var images;
     var count = 20;
+    var myVar;
     
     var current = 0;
     var questions = [{
@@ -30,92 +31,44 @@ $(document).ready(function(){
         correct: 2
     }];
 
-    function ask () {
-        if (questions[current]) {
-            $("#timer").html("Time remaining: " + "00:" + count + " secs");
-            $("#question_div").html(questions[current].question);
-            var choicesArr = questions[current].choices;
-            var buttonsArr = [];
+   
 
-            for (var i = 0; i < choicesArr.length; i++) {
+   
+   $('#start').click(function () {
+       timer();
+       displayTrivia();
+       
+   })
+
+    //timer 
+
+   function timer() {
+       myVar = setInterval(countDown, 1000);
+   }
+
+   function countDown () {
+        count--;
+        $('#timer').html(count)
+        console.log(count);
+
+        if (count === 0) {
+            count = 20;
+
+        }
+   }
+
+   //display questions
+
+   function displayTrivia() {
+       $("#question_div").html(questions[current].question);
+   }
+
+   for (var i = 0; i < choicesArr.length; i++) {
                 var button = $('<button>');
                 button.text(choicesArr[i]);
                 button.attr('data-id', i);
                 $('#choices_div').append(button);
             }
-            window.triviaCounter = setInterval(timer, 1000);
-        } else {
-            $('body').append($('<div />', {
-                text: 'Unanswered: ' + (
-                    questions.length - (answers.correct + answers.incorrect)),
-                class: 'result'
-            }));
-            $('#start_button').text('Restart').appendTo('body').show();
-        }
-    };
-    function timer() {
-        count--;
-        if (count <= 0) {
-            setTimeout(function() {
-                nextQ();
-            });
-
-        } else {
-            $("#timer").html("Time remaining: " + "00:" + count + " secs");
-        }
-    };
-    function nextQ () {
-        current++;
-        clearInterval(window.triviaCounter);
-        count = 30;
-        $('#timer').html("");
-        setTimeout(function() {
-            cleanUp();
-            ask();
-        }, 1000)
-    };
-    cleanUp = function() {
-        $('div[id]').each(function(item) {
-            $(this).html('');
-        });
-        $('.correct').html('Correct answers: ' + answers.correct);
-        $('.incorrect').html('Incorrect answers: ' + answers.incorrect);
-    };
-    answer = function(correct) {
-        var string = correct ? 'correct' : 'incorrect';
-        answers[string]++;
-        $('.' + string).html(string + ' answers: ' + answers[string]);
-    };
-    return _t;
-};
-var Trivia;
-
-$("#start_button").click(function() {
-    $(this).hide();
-    $('.result').remove();
-    $('div').html('');
-    Trivia = new $(window).trivia();
-    Trivia.ask();
-});
-
-$('#choices_div').on('click', 'button', function(e) {
-    var userPick = $(this).data("id"),
-        _t = Trivia || $(window).trivia(),
-        index = questions[current].correct,
-        correct = questions[current].choices[index];
-
-    if (userPick !== index) {
-        $('#choices_div').text("Wrong Answer! The correct answer was: " + correct);
-        answer(false);
-    } else {
-        $('#choices_div').text("Correct!!! The correct answer was: " + correct);
-        answer(true);
-    }
-    nextQ();
-});
-
-
-
 
 
 
