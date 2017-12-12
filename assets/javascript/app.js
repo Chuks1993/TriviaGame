@@ -9,7 +9,7 @@ $(document).ready(function(){
         incorrect: 0
     };
     var images;
-    var count = 20;
+    var count = 5;
     var myVar;
     
     var current = 0;
@@ -36,7 +36,7 @@ $(document).ready(function(){
    
    $('#start').click(function () {
        timer();
-       displayTrivia();
+       trivia();
        
    })
 
@@ -49,19 +49,24 @@ $(document).ready(function(){
    function countDown () {
         count--;
         $('#timer').html(count)
-        console.log(count);
+        
 
         if (count === 0) {
-            count = 20;
-
+            count = 5;
+            current++;
+            console.log(current);
+            $('#choices_div').empty();
+            trivia();
         }
    }
 
    //display questions
 
-   function displayTrivia() {
+   function trivia() {
        $("#question_div").html(questions[current].question);
-   }
+       var choicesArr = questions[current].choices;
+       var buttonsArr = [];
+   
 
    for (var i = 0; i < choicesArr.length; i++) {
                 var button = $('<button>');
@@ -69,7 +74,21 @@ $(document).ready(function(){
                 button.attr('data-id', i);
                 $('#choices_div').append(button);
             }
+}
+     $('#choices_div').on('click', 'button', function(e) {
+       userPick = $(this).data("id"),
+        index = questions[current].correct;
+        correct = questions[current].choices[index];
 
+    if (userPick !== index) {
+        $('#choices_div').text("Wrong Answer! The correct answer was: " + correct);
+        answers.incorrect++;
+    } else {
+        $('#choices_div').text("Correct!!! The correct answer was: " + correct);
+        answers.corret++;
+    }
+    
+});
 
 
 
