@@ -6,38 +6,22 @@ body {
     background-size: cover;
 }
 
-#logo {
-	font-family: 'Shrikhand', cursive;
-	font-size: 125px;
-}
 
-#timer {
+
+#timer, #question_div {
 	font-family: 'Shrikhand', cursive;
 	font-size: 50px;
 }
 
-.container button{
-	position: relative;
-	top: 300px;
-	margin: auto;		
-	height: 100px; 
+ .btn.btn-warning {
+ 	font-family: 'Shrikhand', cursive;
+ 	font-size: 30px;
+ 	padding: 20px;
+ 	margin: 20px;
+ }
+
+.correct, .incorrect, #choices_div {
 	font-family: 'Shrikhand', cursive;
-	font-size: 50px;
-	
+ 	font-size: 30px;
+ 	
 }
-
-#buttons {
-	position: absolute;
-	top: 50px;
-	width: 100%;
-
-}
-
-#a, #b, #c {
-	position: relative;
-	width: 70%;
-	padding: 10px;
-	margin-left: 50px;
-}
-
- 
