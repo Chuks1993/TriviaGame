@@ -25,3 +25,40 @@ body {
  	font-size: 30px;
  	
 }
+
+#start_button {
+	position: fixed;
+  	top: 20%;
+	  left: 35%;
+	  width: 500px;
+	  height: 100px;
+	  font-size: 50px;
+	  font-family: cursive;
+}
+
+#timer {
+	position: fixed;
+	left: 10%;
+	top: 10%;
+}
+
+#question_div{
+	position: fixed;
+	left: 30%;
+	top: 10%;
+} 
+#choices_div{
+position: fixed;
+	left: 30%;
+	top: 25%;
+} 
+.correct{
+position: fixed;
+	left: 30%;
+	top: 40%;
+} 
+.incorrect {
+	position: fixed;
+	left: 30%;
+	top: 45%;
+}
